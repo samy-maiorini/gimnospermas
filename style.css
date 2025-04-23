@@ -141,9 +141,9 @@ body {
 
 .img-ciclo{
     max-width: 100%;
-    width: 400px:
-    display: flex; 
-    flex-wrap: wrap;
+    width: 400px;
+    object-fit: cover;
+    object-position: bottom;
 }
 
 /* Quiz styles */
