@@ -131,6 +131,7 @@ body {
 
 .img-placeholder {
     background-color: #e9ecef;
+    max-width:100%;
     width: 500px;
     display: flex;
     align-items: center;
@@ -141,7 +142,7 @@ body {
 
 .img-ciclo{
     max-width: 100%;
-    width: 400px;
+    width: 500px;
     object-fit: cover;
     object-position: bottom;
 }
