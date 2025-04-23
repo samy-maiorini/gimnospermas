@@ -132,8 +132,8 @@ body {
 
 
 .img-ciclo{
-    max-width: 30%;
-    width: 200px;
+    max-width: 100%;
+    width: 500px;
     object-fit: cover;
     object-position: bottom;
     border-radius: 8px;
