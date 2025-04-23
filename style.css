@@ -46,8 +46,10 @@ body {
     margin-bottom: 2rem;
     position: relative;
     width: 100%;
-    overflow: hidden; /* Impede que qualquer coisa ultrapasse o container */
+    overflow: hidden; /* Impede que qualquer coisa ultrapasse o container*/
+    overflow-x: auto; /* Deixa rolar para os lados, se precisar */
 }
+
 
 
 .section-title {
@@ -149,21 +151,13 @@ body {
     display: block;
     object-fit: contain; /* opcional: evita que a imagem fique distorcida */
 } 
-.section-card img.img-responsiva {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
-} */
-  
+*/
 
 .section-card img.img-responsiva {
-  width: 100%;
-  height: auto;
   max-width: 100%;
+  height: auto;
   display: block;
-  object-fit: contain;
-  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 /* Quiz styles */
