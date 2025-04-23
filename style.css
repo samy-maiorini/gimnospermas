@@ -48,6 +48,8 @@ body {
     width: 100%;
     overflow: hidden; /* Impede que qualquer coisa ultrapasse o container*/
     overflow-x: auto; /* Deixa rolar para os lados, se precisar */
+    padding: 1rem; /* ou o valor que já usa */
+    box-sizing: border-box;
 }
 
 
@@ -153,13 +155,14 @@ body {
 } 
 */
 
+
 .section-card img.img-responsiva {
+  width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
-
 /* Quiz styles */
 .question {
     margin-bottom: 2rem;
