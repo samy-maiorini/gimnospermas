@@ -43,7 +43,11 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /*fim original*/
+    width: 100%;
+    max-width: 800px; /* ou qualquer limite que você quiser */
+    margin: 0 auto;    /* centraliza no desktop */
+    padding: 10px;
 }
 
 .section-title {
