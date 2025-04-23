@@ -139,12 +139,18 @@ body {
     object-position: bottom;
     border-radius: 8px;
     margin-bottom: 1rem;
-}*/
+}
 .img-ciclo {
     width: 100%;
     height: auto; /* mantém a proporção da imagem */
     display: block;
     object-fit: contain; /* opcional: evita que a imagem fique distorcida */
+} */
+.section-card img.img-responsiva {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
 }
 
 /* Quiz styles */
