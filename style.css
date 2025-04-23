@@ -129,22 +129,15 @@ body {
     margin-bottom: 1rem;
 }
 
-.img-placeholder {
-    background-color: #e9ecef;
-    max-width:100%;
-    width: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
+
 
 .img-ciclo{
     max-width: 100%;
     width: 500px;
     object-fit: cover;
     object-position: bottom;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 /* Quiz styles */
