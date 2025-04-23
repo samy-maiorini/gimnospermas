@@ -44,8 +44,11 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    max-width: 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Impede que qualquer coisa ultrapasse o container */
 }
+
 
 .section-title {
     color: var(--primary-green);
@@ -145,12 +148,22 @@ body {
     height: auto; /* mantém a proporção da imagem */
     display: block;
     object-fit: contain; /* opcional: evita que a imagem fique distorcida */
-} */
+} 
 .section-card img.img-responsiva {
   width: 100%;
   height: auto;
   display: block;
   max-width: 100%;
+} */
+  
+
+.section-card img.img-responsiva {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  box-sizing: border-box;
 }
 
 /* Quiz styles */
