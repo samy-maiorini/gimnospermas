@@ -581,3 +581,12 @@ details p {
         padding: 0.75rem;
     }
 }
+@media (max-width: 768px) {
+  .section-card {
+    padding: 10px;
+  }
+
+  .section-card img.img-responsiva {
+    width: 100%;
+  }
+}
