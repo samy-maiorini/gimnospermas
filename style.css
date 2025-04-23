@@ -139,6 +139,13 @@ body {
     margin-bottom: 1rem;
 }
 
+.img-ciclo{
+    max-width: 100%;
+    width: 500px:
+    display: flex; 
+    flex-wrap: wrap;
+}
+
 /* Quiz styles */
 .question {
     margin-bottom: 2rem;
@@ -556,7 +563,7 @@ details p {
     line-height: 1.5;
 }
 
-/* Responsivo e mais elegante */
+/* responsividade
 @media (max-width: 600px) {
     summary {
         font-size: 1rem;
