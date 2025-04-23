@@ -88,36 +88,7 @@
         });
     }
     
-    // Inicialização do Bootstrap Accordion e outros componentes
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-    
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-        return new bootstrap.Popover(popoverTriggerEl);
-    });
-
-    // Animações para a galeria de fotos
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            const caption = this.querySelector('.gallery-caption');
-            if (caption) {
-                caption.style.transform = 'translateY(0)';
-            }
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            const caption = this.querySelector('.gallery-caption');
-            if (caption) {
-                caption.style.transform = 'translateY(100%)';
-            }
-        });
-    });
-
+   
     // Efeito de scroll suave para os links de navegação interna
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
