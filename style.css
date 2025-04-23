@@ -132,7 +132,7 @@ body {
 
 
 .img-ciclo{
-    max-width: 100%;
+    max-width: 30%;
     width: 200px;
     object-fit: cover;
     object-position: bottom;
