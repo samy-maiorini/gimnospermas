@@ -44,15 +44,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    position: relative;
-    width: 100%;
-    overflow: hidden; /* Impede que qualquer coisa ultrapasse o container*/
-    overflow-x: auto; /* Deixa rolar para os lados, se precisar */
-    padding: 1rem; /* ou o valor que já usa */
-    box-sizing: border-box;
 }
-
-
 
 .section-title {
     color: var(--primary-green);
@@ -137,32 +129,16 @@ body {
     margin-bottom: 1rem;
 }
 
-
-
-/*.img-ciclo{
-    max-width: 100%;
+.img-placeholder {
+    background-color: #e9ecef;
     width: 500px;
-    object-fit: cover;
-    object-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
     margin-bottom: 1rem;
 }
-.img-ciclo {
-    width: 100%;
-    height: auto; /* mantém a proporção da imagem */
-    display: block;
-    object-fit: contain; /* opcional: evita que a imagem fique distorcida */
-} 
-*/
 
-
-.section-card img.img-responsiva {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
 /* Quiz styles */
 .question {
     margin-bottom: 2rem;
@@ -580,7 +556,7 @@ details p {
     line-height: 1.5;
 }
 
-/* responsividade
+/* Responsivo e mais elegante */
 @media (max-width: 600px) {
     summary {
         font-size: 1rem;
@@ -590,13 +566,4 @@ details p {
     details p {
         padding: 0.75rem;
     }
-}
-@media (max-width: 768px) {
-  .section-card {
-    padding: 10px;
-  }
-
-  .section-card img.img-responsiva {
-    width: 100%;
-  }
 }
