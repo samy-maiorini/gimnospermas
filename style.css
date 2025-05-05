@@ -52,8 +52,6 @@ body {
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
 }
-
-/* Card interativo */
 .info-card {
     cursor: pointer;
     perspective: 1000px;
@@ -122,7 +120,6 @@ body {
     font-style: italic;
 }
 
-/* Características e Reprodução */
 .feature-icon {
     font-size: 2rem;
     color: var(--primary-green);
@@ -138,8 +135,6 @@ body {
     border-radius: 8px;
     margin-bottom: 1rem;
 }
-
-/* Quiz styles */
 .question {
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--light-green);
@@ -170,7 +165,6 @@ body {
     border-color: #f5c6cb;
 }
 
-/* Curiosidades */
 .curiosity-card {
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -186,7 +180,6 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Galeria */
 .gallery-item {
     position: relative;
     margin-bottom: 1rem;
@@ -224,32 +217,10 @@ body {
     transform: translateY(0);
 }
 
-/* Footer */
-.footer-custom {
-    background-color: var(--dark-brown);
-    color: white;
-    padding: 2rem 1rem;
-    margin-top: 2rem;
-}
 
-.footer-custom a {
-    color: var(--light-green);
-    text-decoration: none;
-}
 
-.footer-custom a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .info-card {
-        height: 350px;
-    }
-}
 
 /* botao uiverse */
-/* From Uiverse.io by Prince4fff */
 .carduiv p {
     font-size: 19px;
     font-weight: 400;
@@ -273,13 +244,6 @@ body {
     right: 0;
     background-color: var(--primary-green);
     border-radius: 0 4px 0 32px;
-}
-
-.go-arrow {
-    margin-top: -4px;
-    margin-right: -4px;
-    color: white;
-    font-family: courier, sans;
 }
 
 .carduiv1 {
@@ -453,7 +417,6 @@ body {
 /*fim botao uiverse*/
 
 /*card estrobilos*/
-/* From Uiverse.io by gharsh11032000 */ 
 .card {
     border: black 3px solid;
     position: relative;
@@ -556,7 +519,12 @@ details p {
     line-height: 1.5;
 }
 
-/* Responsivo e mais elegante */
+@media (max-width: 768px) {
+    .info-card {
+        height: 350px;
+    }
+}
+
 @media (max-width: 600px) {
     summary {
         font-size: 1rem;
