@@ -185,20 +185,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// ====== ESCONDER HEADER AO ROLAR PARA BAIXO E MOSTRAR AO ROLAR PARA CIMA ======
-let lastScrollTop = 0;
-const header = document.getElementById('topHeader');
-
-window.addEventListener('scroll', function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        // Rolando para baixo
-        header.style.top = '-100px'; // Esconde
-    } else {
-        // Rolando para cima
-        header.style.top = '0'; // Mostra
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evita valores negativos
-});
