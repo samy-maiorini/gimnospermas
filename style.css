@@ -208,6 +208,8 @@ body {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    border-left: 4px solid var(--primary-green);
     height: 200px;
 }
 
@@ -218,6 +220,11 @@ body {
     /* transition: transform 0.3s; */
     transition: 0.5s;
     filter: blur(2px);
+}
+
+.gallery-item:hover{
+    box-shadow: 0 4px 8px rgba(2, 153, 103, 0.452);
+    border-left: 4px solid var(--hover-green);
 }
 
 .gallery-item:hover .gallery-image {
