@@ -7,6 +7,31 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // ====== FUNCIONALIDADE DO MENU ======
+        // Selecionar elementos
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        // Adicionar evento de clique ao botão do menu
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+        });
+
+        // Fechar o menu ao clicar em um item
+        const menuItems = document.querySelectorAll('#menu a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Fechar o menu se clicar fora
+        document.addEventListener('click', function(event) {
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
     // ====== FUNCIONALIDADE DO QUIZ ======
     const quizStartButton = document.querySelector('.quiz-start');
     const quizContainer = document.getElementById('quiz');
