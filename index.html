@@ -10,19 +10,29 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para ícones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
     <header class="header-custom">
-        <div class="header-content">
-            <h1 class="display-4">Explorando as Gimnospermas</h1>
-            <p class="lead">Conheça o fascinante mundo das plantas com sementes expostas</p>
+        <div class="header-content d-flex flex-column align-items-center justify-content-center">
+            <h1 class="display-3">Explorando as Gimnospermas</h1>
+            <nav>
+                <ul class="index d-flex flex-row list-unstyled justify-content-center">
+                    <li class="p-2"><a href="#o-que-sao">O Que São?</a></li>
+                    <li class="p-2"><a href="#caracteristicas">Características</a></li>
+                    <li class="p-2"><a href="#reproducao">Reprodução</a></li>
+                    <li class="p-2"><a href="#curiosidades">Curiosidades</a></li>
+                    <li class="p-2"><a href="#quizLink">Quiz</a></li>
+                    <li class="p-2"><a href="#galeria">Galeria</a></li>
+                </ul>
+            </nav>  
         </div>
     </header>
 
-    <div class="container py-5">
+    <div class="container py-5" id="o-que-sao">
         <section class="section-card p-4 mb-5">
             <h2 class="section-title">O Que São Gimnospermas?</h2>
             <div class="info-card">
@@ -75,7 +85,7 @@
         </section>
 
         <!-- Nova Seção: Características Gerais -->
-        <section class="section-card p-4 mb-5">
+        <section class="section-card p-4 mb-5" id="caracteristicas">
             <h2 class="section-title">Características Gerais das Gimnospermas</h2>
 
             <div class="row">
@@ -132,8 +142,8 @@
                 </div>
         </section>
 
-        <!-- sessão nova-->
-        <section class="section-card p-4 mb-5">
+        <!-- sessão nova sexoooooowoww-->
+        <section class="section-card p-4 mb-5" id="reproducao">
             <h2 class="section-title">Reprodução das Gimnospermas</h2>
 
             <div class="row mb-4">
@@ -183,11 +193,6 @@
                         <p>As sementes são dispersas pelo vento, água ou animais. Em condições favoráveis, a semente
                             germina, dando origem a uma nova planta (esporófito), recomeçando o ciclo.</p>
                     </details>
-
-
-
-
-
                 </div>
             </div>
 
@@ -222,13 +227,57 @@
                         </div>
                     </div>
                 </div>
-                <p class="card-hint">Passe o mouse por cima da imagem e veja detalhes sobre os estróbilos masculinos e
-                    femininos.</p>
+                <p class="card-hint">Passe o mouse por cima da imagem e veja detalhes sobre os estróbilos masculinos e femininos.</p>
             </div>
         </section>
 
-        <section class="section-card p-4 mb-5">
-            <h2 class="section-title">Desafio das Sementes</h2>
+        <section class="section-card p-4 mb-5" id="curiosidades">
+            <h2 class="section-title">Curiosidades</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="curiosity-card">
+                        <div class="curiosity-icon">🌱</div>
+                        <h3>Fóssil Vivo</h3>
+                        <p>A <i>Ginkgo biloba</i> é considerada um fóssil vivo! Esta espécie existe há mais de 200
+                            milhões de
+                            anos e sobreviveu à extinção dos dinossauros, permanecendo praticamente inalterada.</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="curiosity-card">
+                        <div class="curiosity-icon">🌲</div>
+                        <h3>Pré-históricas</h3>
+                        <p>As gimnospermas dominaram a Terra antes das plantas com flores existirem. Durante o período
+                            Jurássico, elas eram as plantas terrestres dominantes, formando vastas florestas onde
+                            vagavam os dinossauros.</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="curiosity-card">
+                        <div class="curiosity-icon">💧</div>
+                        <h3>Resinas Valiosas</h3>
+                        <p>Muitas gimnospermas produzem resina, uma substância viscosa que protege a planta contra
+                            insetos e fungos. Essas resinas são usadas para fazer verniz, perfumes e até âmbar, uma
+                            pedra semipreciosa.</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="curiosity-card">
+                        <div class="curiosity-icon">🏔️</div>
+                        <h3>Gigantescas</h3>
+                        <p>As sequoias, um tipo de conífera, estão entre os organismos vivos mais altos e antigos do
+                            planeta. A sequoia-gigante "General Sherman" tem mais de 83 metros de altura e estima-se que
+                            tenha mais de 2.200 anos!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card p-4 mb-5" id="quizLink">
+            <h2 class="section-title">Quiz das Sementes</h2>
             <div class="quiz-container">
                 <button class="quiz-start btn btn-success">Iniciar Quiz</button>
 
@@ -286,58 +335,13 @@
                     <div class="result alert alert-success mt-4" style="display: none;">
                         <h3>Resultado</h3>
                         <p>Você acertou <span id="score">0</span> de 5 perguntas!</p>
-                        <button class="quiz-reset btn btn-outline-success mt-2">Tentar novamente</button>
+                        <a href="#quizLink"><button class="quiz-reset btn btn-outline-success mt-2">Tentar novamente</button></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-card p-4 mb-5">
-            <h2 class="section-title">Curiosidades</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                <div class="col">
-                    <div class="curiosity-card">
-                        <div class="curiosity-icon">🌱</div>
-                        <h3>Fóssil Vivo</h3>
-                        <p>A <i>Ginkgo biloba</i> é considerada um fóssil vivo! Esta espécie existe há mais de 200
-                            milhões de
-                            anos e sobreviveu à extinção dos dinossauros, permanecendo praticamente inalterada.</p>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="curiosity-card">
-                        <div class="curiosity-icon">🌲</div>
-                        <h3>Pré-históricas</h3>
-                        <p>As gimnospermas dominaram a Terra antes das plantas com flores existirem. Durante o período
-                            Jurássico, elas eram as plantas terrestres dominantes, formando vastas florestas onde
-                            vagavam os dinossauros.</p>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="curiosity-card">
-                        <div class="curiosity-icon">💧</div>
-                        <h3>Resinas Valiosas</h3>
-                        <p>Muitas gimnospermas produzem resina, uma substância viscosa que protege a planta contra
-                            insetos e fungos. Essas resinas são usadas para fazer verniz, perfumes e até âmbar, uma
-                            pedra semipreciosa.</p>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="curiosity-card">
-                        <div class="curiosity-icon">🏔️</div>
-                        <h3>Gigantescas</h3>
-                        <p>As sequoias, um tipo de conífera, estão entre os organismos vivos mais altos e antigos do
-                            planeta. A sequoia-gigante "General Sherman" tem mais de 83 metros de altura e estima-se que
-                            tenha mais de 2.200 anos!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-card p-4 mb-5">
+        <section class="section-card p-4 mb-5" id="galeria">
             <h2 class="section-title">Galeria de Fotos</h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
                 <div class="col">
@@ -380,8 +384,8 @@
         </section>
     </div>
 
-    <footer class="header-custom">
-        <div class="header-content">
+    <footer class="footer-custom">
+        <div class="footer-content">
             <h1>Gimnospermas</h1>
             <p class="lead">Por: Atilio de Andrade, Giovani Oliveira, Samy Maiorini e Victor Ramos</p>
             <p class="lead">© 2025 Grown Ups (Etec's version). Todos direitos reservados.</p>
