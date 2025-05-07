@@ -620,6 +620,11 @@ details p {
     overflow: hidden;
 }
 
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
 @media (max-width: 600px) {
     summary {
         font-size: 1rem;
