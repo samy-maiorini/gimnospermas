@@ -1,9 +1,11 @@
 :root {
     --primary-green: #2e6e41;
     --light-green: #a3c287;
+    --hover-green: #b6da98;
     --beige: #f5f0e1;
     --brown: #6d4c41;
     --dark-brown: #5d4037;
+    --hover-brown: #422c24;
 }
 
 body {
@@ -92,6 +94,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* transition: background-color 0.3s ease; */
+    transition: 0.3s ease;
+}
+
+.card-front:hover {
+    background-color: var(--hover-green);
+    color: var(--hover-brown);
 }
 
 .card-back {
@@ -171,13 +180,24 @@ body {
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     border-left: 4px solid var(--primary-green);
+    transition: 0.3s ease;
     height: 100%;
+}
+
+.curiosity-card:hover {
+    box-shadow: 0 2px 4px rgba(2, 153, 103, 0.452);
+    border-left: 4px solid var(--hover-green);
 }
 
 .curiosity-icon {
     font-size: 2rem;
     color: var(--primary-green);
     margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+.curiosity-card:hover .curiosity-icon {
+    font-size: 2.75rem;
 }
 
 .gallery-item {
@@ -193,11 +213,14 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
+    /* transition: transform 0.3s; */
+    transition: 0.5s;
+    filter: blur(2px);
 }
 
 .gallery-item:hover .gallery-image {
     transform: scale(1.05);
+    filter: none;
 }
 
 .gallery-caption {
@@ -499,6 +522,8 @@ summary {
     color: var(--dark-brown);
     background-color: var(--light-green);
     border-bottom: 1px solid var(--brown);
+    transition: background-color 0.3s ease;
+    /* transition: color 0.3s ease; */
     list-style: none;
     user-select: none;
 }
@@ -517,6 +542,11 @@ details p {
     margin: 0;
     color: var(--dark-brown);
     line-height: 1.5;
+}
+
+.summaryHover:hover{
+    background-color: var(--hover-green);
+    color: var(--hover-brown);
 }
 
 @media (max-width: 768px) {
