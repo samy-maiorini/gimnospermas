@@ -1,54 +1,84 @@
-
-    document.addEventListener('DOMContentLoaded', function() {
-    // Card interativo - função para virar o card ao clicar
+document.addEventListener('DOMContentLoaded', function () {
+    // ====== FUNCIONALIDADE DO CARD FLIP ======
     const infoCard = document.querySelector('.info-card');
     if (infoCard) {
         infoCard.addEventListener('click', function() {
-            this.classList.toggle('flipped');
+            infoCard.classList.toggle('flipped');
         });
     }
 
-    // Inicialização do quiz
+    // ====== FUNCIONALIDADE DO QUIZ ======
     const quizStartButton = document.querySelector('.quiz-start');
     const quizContainer = document.getElementById('quiz');
     const resultContainer = document.querySelector('.result');
     const scoreElement = document.getElementById('score');
     const resetButton = document.querySelector('.quiz-reset');
+    const questions = document.querySelectorAll('.question');
+    const options = document.querySelectorAll('.option');
     
+    let score = 0;
+    let answeredCount = 0;
+    const questionCount = questions.length;
+
+    // Função para iniciar o quiz
     if (quizStartButton && quizContainer) {
         quizStartButton.addEventListener('click', function() {
+            console.log('Quiz started'); // Debug
             quizStartButton.style.display = 'none';
             quizContainer.style.display = 'block';
+            resetQuiz(); // Garantir que o quiz está limpo ao iniciar
         });
     }
-    
-    // Inicialização do comportamento das opções do quiz
-    const options = document.querySelectorAll('.option');
-    let score = 0;
-    let questionCount = document.querySelectorAll('.question').length;
-    let answeredCount = 0;
-    
+
+    // Função para resetar o quiz
+    function resetQuiz() {
+        console.log('Quiz reset'); // Debug
+        score = 0;
+        answeredCount = 0;
+        
+        // Limpa as classes de todas as opções
+        options.forEach(option => {
+            option.classList.remove('correct', 'incorrect');
+            option.style.pointerEvents = 'auto';
+        });
+        
+        // Remove a classe 'answered' de todas as perguntas
+        questions.forEach(question => {
+            question.classList.remove('answered');
+        });
+        
+        // Esconde o resultado
+        if (resultContainer) {
+            resultContainer.style.display = 'none';
+        }
+    }
+
+    // Adiciona evento para cada opção do quiz
     options.forEach(option => {
         option.addEventListener('click', function() {
-            // Verifica se a questão já foi respondida
             const question = this.closest('.question');
+            
+            // Se a pergunta já foi respondida, não faz nada
             if (question.classList.contains('answered')) {
                 return;
             }
             
-            // Marca a questão como respondida
+            // Marca a pergunta como respondida
             question.classList.add('answered');
             answeredCount++;
+            console.log('Question answered:', answeredCount, 'of', questionCount); // Debug
             
             // Verifica se a resposta está correta
             const isCorrect = this.getAttribute('data-correct') === 'true';
+            
             if (isCorrect) {
                 this.classList.add('correct');
                 score++;
+                console.log('Correct answer! Score:', score); // Debug
             } else {
                 this.classList.add('incorrect');
                 
-                // Destaca a resposta correta
+                // Mostra a resposta correta
                 question.querySelectorAll('.option').forEach(opt => {
                     if (opt.getAttribute('data-correct') === 'true') {
                         opt.classList.add('correct');
@@ -56,99 +86,76 @@
                 });
             }
             
-            // Mostra o resultado quando todas as perguntas forem respondidas
+            // Desabilita as outras opções para esta pergunta
+            question.querySelectorAll('.option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            
+            // Se todas as perguntas foram respondidas, mostra o resultado
             if (answeredCount === questionCount) {
-                setTimeout(() => {
-                    scoreElement.textContent = score;
-                    resultContainer.style.display = 'block';
-                }, 1000);
+                setTimeout(function() {
+                    if (scoreElement) {
+                        scoreElement.textContent = score;
+                    }
+                    if (resultContainer) {
+                        resultContainer.style.display = 'block';
+                    }
+                }, 800);
             }
         });
     });
-    
-    // Botão para reiniciar o quiz
+
+    // Evento para o botão de reiniciar
     if (resetButton) {
         resetButton.addEventListener('click', function() {
-            // Limpa as classes de resposta
-            document.querySelectorAll('.option').forEach(option => {
-                option.classList.remove('correct', 'incorrect');
-            });
+            console.log('Reset button clicked'); // Debug
+            resetQuiz();
             
-            // Reinicia o contador de perguntas respondidas
-            document.querySelectorAll('.question').forEach(question => {
-                question.classList.remove('answered');
-            });
-            
-            // Reinicia o score
-            score = 0;
-            answeredCount = 0;
-            
-            // Esconde o resultado
-            resultContainer.style.display = 'none';
+            // Esconde o quiz e mostra o botão de iniciar
+            if (quizContainer) {
+                quizContainer.style.display = 'none';
+            }
+            if (quizStartButton) {
+                quizStartButton.style.display = 'block';
+            }
         });
     }
-    
-   
-    // Efeito de scroll suave para os links de navegação interna
+
+    // ====== FUNCIONALIDADE DE SCROLL SUAVE ======
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                window.scrollTo({
-                    top: target.offsetTop,
+                target.scrollIntoView({
                     behavior: 'smooth'
                 });
             }
         });
     });
+
+    // ====== ANIMAÇÕES DAS SEÇÕES ======
+    const sections = document.querySelectorAll('.section-card');
     
-    // Efeito de aparecer elementos quando eles entram na viewport
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated', 'fadeIn');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.section-card').forEach(section => {
-        observer.observe(section);
-    });
-    
-    // Adicionar classes de animação aos elementos
-    document.querySelectorAll('.section-card').forEach(section => {
+    sections.forEach(section => {
         section.style.opacity = '0';
         section.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
         section.style.transform = 'translateY(20px)';
     });
-    
-    // Função para animar elementos quando eles entram na viewport
-    function animateOnScroll() {
-        const elementsToAnimate = document.querySelectorAll('.section-card');
-        
-        elementsToAnimate.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
             }
         });
-    }
-    
-    // Animar elementos visíveis no carregamento da página
-    animateOnScroll();
-    
-    // Animar elementos ao rolar a página
-    window.addEventListener('scroll', animateOnScroll);
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
