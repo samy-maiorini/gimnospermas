@@ -652,6 +652,7 @@ details p {
 @media screen and (max-width: 768px) {
     .header-custom {
         background: linear-gradient(135deg, var(--primary-green), var(--primary-green));
+        position: absolute;
     }
     
     .header-custom h1 {
