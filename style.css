@@ -21,7 +21,7 @@ body {
 }
 
 .header-custom {
-    background: linear-gradient(135deg, var(--brown), var(--primary-green));
+    background-color: var(--primary-green);
     color: white;
     position: sticky;
     width: 100%;
