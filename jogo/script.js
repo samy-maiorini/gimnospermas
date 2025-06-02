@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let flippedCards = [];
     let matchedCount = 0;
     let moves = 0;
-    let difficulty = 'easy';
     let timerSeconds = 0;
     let timerInterval = null;
     let paused = false;
@@ -33,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerInterval);
         timerInterval = setInterval(updateTimer, 1000);
 
-        difficulty = document.getElementById('difficulty').value;
+        const difficulty = 'easy';
         board.className = `game-board ${difficulty}`;
 
-        const numPairs = difficulty === 'easy' ? 4 : difficulty === 'medium' ? 6 : 8;
+        const numPairs = 8;
         const selected = shuffle([...cardsData]).slice(0, numPairs);
         gameCards = shuffle([...selected, ...selected]);
 
@@ -51,15 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('memory-card');
         card.dataset.name = name;
 
+        const imagePath = `../images/${name}.jpg`;
+
         card.innerHTML = `
             <div class="card-front">
-                <i class="fas fa-question card-icon"></i>
+                <span class="card-icon">?</span>
             </div>
             <div class="card-back">
-                <i class="fas fa-tree gymnosperm-icon"></i>
+                <img src="${imagePath}" alt="${name}" class="gymnosperm-image" />
                 <div class="card-title">${name}</div>
             </div>
         `;
+
+        const imgBack = card.querySelector('.gymnosperm-image');
+        imgBack.onerror = () => {
+            console.warn(`Imagem não encontrada: ${imagePath}`);
+            imgBack.style.display = 'none';
+        };
 
         card.addEventListener('click', () => handleCardClick(card));
         return card;
@@ -122,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
 
-    // Botões
     document.getElementById('newGameBtn').addEventListener('click', startGame);
 
     document.getElementById('pauseBtn').addEventListener('click', () => {
@@ -136,8 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('playAgainBtn').addEventListener('click', startGame);
 
-    document.getElementById('difficulty').addEventListener('change', startGame);
-
-    // Inicia o jogo ao carregar
     startGame();
 });
