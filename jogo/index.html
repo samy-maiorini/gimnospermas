@@ -21,20 +21,16 @@
     </header>
 
     <div class="game-controls">
-      <div class="control-group">
-        <label for="difficulty">Dificuldade:</label>
-        <select id="difficulty" class="difficulty-selector">
-          <option value="easy">Fácil (4x4)</option>
-          <option value="medium">Médio (5x5)</option>
-          <option value="hard">Difícil (6x6)</option>
-        </select>
-      </div>
       <button class="btn" id="newGameBtn">
         <i class="fas fa-play"></i> Novo Jogo
       </button>
+      <a href="../index.html"><button class="btn" id="backBtn">
+        <i class="fas fa-back"></i> Voltar
+      </button></a>
       <button class="btn" id="pauseBtn">
         <i class="fas fa-pause"></i> Pausar
       </button>
+      
     </div>
 
     <div class="game-stats">
@@ -57,7 +53,6 @@
     </div>
 
     <div class="game-board easy" id="gameBoard">
-      <!-- Memory cards will be dynamically generated here -->
     </div>
   </div>
 
