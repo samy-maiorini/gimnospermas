@@ -4,25 +4,36 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+html {
+  min-height: 100%;
+  height: 100%;
+  background: #2e7d32;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #2d5016 0%, #4a7c23 50%, #6ba832 100%);
   min-height: 100vh;
+  height: 100%;
   color: #fff;
   overflow-x: hidden;
 }
-
 .bg-leaves {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   opacity: 0.1;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 20c10-10 30-10 40 0s10 30 0 40-30 10-40 0-10-30 0-40z' fill='%23ffffff'/%3E%3C/svg%3E");
-  background-size: 50px 50px;
+  background-image: url("../images/trevo.svg");
+  background-size: 90px 90px;
   animation: float 20s ease-in-out infinite;
+  z-index: 0;
 }
 
 @keyframes float {
@@ -95,7 +106,6 @@ body {
   }
 }
 
-/* Game Controls */
 .game-controls {
   display: flex;
   justify-content: center;
@@ -162,7 +172,6 @@ body {
   color: white;
 }
 
-/* Game Stats */
 .game-stats {
   display: flex;
   justify-content: center;
@@ -200,7 +209,6 @@ body {
   margin-top: 5px;
 }
 
-/* Game Board */
 .game-board {
   display: grid;
   gap: 15px;
@@ -213,18 +221,10 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .game-board.easy {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.game-board.medium {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.game-board.hard {
-  grid-template-columns: repeat(6, 1fr);
-}
 
 .memory-card {
   aspect-ratio: 1;
@@ -247,10 +247,12 @@ body {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-.memory-card.flipped {
-  background: linear-gradient(135deg, #fff, #f1f8e9);
-  color: #2e7d32;
+.memory-card.flipped .card-front {
   transform: rotateY(180deg);
+}
+
+.memory-card.flipped .card-back {
+  transform: rotateY(0deg);
 }
 
 .memory-card.matched {
@@ -298,23 +300,76 @@ body {
 .card-icon {
   font-size: 3rem;
   margin-bottom: 5px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8)
 }
 
 .card-title {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   margin-top: 5px;
-}
-
-.gymnosperm-icon {
-  font-size: 2.5rem;
-  margin-bottom: 8px;
   color: #2e7d32;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  padding: 2px 6px;
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-word;
 }
 
-/* Modal/Popup styles */
+.memory-card {
+  width: 140px;
+  height: 180px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin: 8px;
+  position: relative;
+}
+
+.memory-card .card-front,
+.memory-card .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-card .card-front {
+  z-index: 2;
+}
+
+.memory-card .card-back {
+  z-index: 1;
+}
+
+.memory-card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.memory-card.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+.gymnosperm-image {
+  max-width: 90px;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+  object-fit: cover;
+  background: #fff;
+  display: block;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -360,7 +415,6 @@ body {
   justify-content: center;
 }
 
-/* Educational Info Section */
 .info-section {
   margin-top: 40px;
   background: rgba(255, 255, 255, 0.1);
@@ -403,7 +457,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header h1 {
     font-size: 2.5rem;
